@@ -56,6 +56,16 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     ///
     /// The default value of this property is `10`
     open var typingBubbleTopInset: CGFloat = 10
+    
+    /// A property that determines the color of the `TypingBubble` within the `TypingBubbleCell`
+    ///
+    /// The default value of this property is `UIColor.incomingGray`
+    open var typingBubbleBackgroundColor: UIColor = .incomingGray
+    
+    /// A property that determines the color of the `TypingIndicator` dots within the `TypingBubble`
+    ///
+    /// The default value of this property is `UIColor.lightGray`
+    open var typingBubbleDotColor: UIColor = .lightGray
 
     open override var canBecomeFirstResponder: Bool {
         return true
@@ -185,7 +195,7 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     ///              when `animated` is `TRUE` or before the `completion` block executes
     ///              when `animated` is `FALSE`
     ///   - completion: A completion block to execute after the insertion/deletion
-    open func setTypingBubbleHidden(_ isHidden: Bool, animated: Bool, whilePerforming updates: (()->Void)? = nil, completion: ((Bool)->Void)?=nil) {
+    open func setTypingBubbleHidden(_ isHidden: Bool, animated: Bool, whilePerforming updates: (() -> Void)? = nil, completion: ((Bool) -> Void)?=nil) {
         
         guard isTypingBubbleHidden != isHidden else { return }
         
@@ -257,7 +267,8 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
         
         guard !isSectionReservedForTypingBubble(indexPath.section) else {
             let cell = messagesCollectionView.dequeueReusableCell(TypingBubbleCell.self, for: indexPath)
-            cell.configure(at: indexPath, and: messagesCollectionView)
+            cell.typingBubble.backgroundColor = typingBubbleBackgroundColor
+            cell.typingBubble.typingIndicator.dotColor = typingBubbleDotColor
             cell.typingBubble.startAnimating()
             return cell
         }
