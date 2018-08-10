@@ -91,7 +91,6 @@ extension MessagesViewController {
         messageCollectionViewBottomInset = newBottomInset
     }
 
-
     // MARK: - Inset Computation
 
     @objc
