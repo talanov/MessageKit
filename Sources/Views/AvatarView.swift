@@ -77,6 +77,7 @@ open class AvatarView: UIImageView {
 
     convenience public init() {
         self.init(frame: .zero)
+        prepareView()
     }
     
     private func setImageFrom(initials: String?) {

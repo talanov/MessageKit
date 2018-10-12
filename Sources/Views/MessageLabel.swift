@@ -166,12 +166,14 @@ open class MessageLabel: UILabel {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        self.numberOfLines = 0
-        self.lineBreakMode = .byWordWrapping
+        numberOfLines = 0
+        lineBreakMode = .byWordWrapping
     }
 
     public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        numberOfLines = 0
+        lineBreakMode = .byWordWrapping
     }
 
     // MARK: - Open Methods

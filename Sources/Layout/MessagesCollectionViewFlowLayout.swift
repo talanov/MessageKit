@@ -73,7 +73,11 @@ open class MessagesCollectionViewFlowLayout: UICollectionViewFlowLayout {
     }
 
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        
+        sectionInset = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MessagesCollectionViewFlowLayout.handleOrientationChange(_:)), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
 
     deinit {

@@ -47,7 +47,14 @@ open class PlayButtonView: UIView {
     }
 
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        
+        setupSubviews()
+        setupConstraints()
+        
+        triangleView.clipsToBounds = true
+        triangleView.backgroundColor = .black
+        backgroundColor = .playButtonLightGray
     }
 
     // MARK: - Methods
