@@ -166,14 +166,12 @@ open class MessageLabel: UILabel {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        numberOfLines = 0
-        lineBreakMode = .byWordWrapping
+        setupView()
     }
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        numberOfLines = 0
-        lineBreakMode = .byWordWrapping
+        setupView()
     }
 
     // MARK: - Open Methods
@@ -304,6 +302,11 @@ open class MessageLabel: UILabel {
         default:
             fatalError(MessageKitError.unrecognizedCheckingResult)
         }
+    }
+    
+    private func setupView() {
+        numberOfLines = 0
+        lineBreakMode = .byWordWrapping
     }
 
     // MARK: - Parsing Text

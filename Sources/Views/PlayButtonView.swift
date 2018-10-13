@@ -40,10 +40,7 @@ open class PlayButtonView: UIView {
 
         setupSubviews()
         setupConstraints()
-
-        triangleView.clipsToBounds = true
-        triangleView.backgroundColor = .black
-        backgroundColor = .playButtonLightGray
+        setupView()
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -51,10 +48,7 @@ open class PlayButtonView: UIView {
         
         setupSubviews()
         setupConstraints()
-        
-        triangleView.clipsToBounds = true
-        triangleView.backgroundColor = .black
-        backgroundColor = .playButtonLightGray
+        setupView()
     }
 
     // MARK: - Methods
@@ -72,6 +66,13 @@ open class PlayButtonView: UIView {
 
     private func setupSubviews() {
         addSubview(triangleView)
+    }
+    
+    private func setupView() {
+        triangleView.clipsToBounds = true
+        triangleView.backgroundColor = .black
+        
+        backgroundColor = .playButtonLightGray
     }
 
     private func setupConstraints() {
