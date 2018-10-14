@@ -46,7 +46,7 @@ The changelog for `MessageKit`. Also see the [releases](https://github.com/Messa
 
 - Fixed `MessagesCollectionView` to allow to use nibs with `MessageReusableView`.
 [#832](https://github.com/MessageKit/MessageKit/pull/832) by [@maxxx777](https://github.com/maxxx777).
-- Fixed crash at `AvatarView`, when `AvatarView` is being called from another XIB. [#905](https://github.com/MessageKit/MessageKit/pull/905) by [@talanov](https://github.com/talanov).
+- Fixed multiple crashes at views, when views are being called from another XIB. [#905](https://github.com/MessageKit/MessageKit/pull/905) by [@talanov](https://github.com/talanov).
 
 ## [1.0.0](https://github.com/MessageKit/MessageKit/releases/tag/1.0.0)
 
